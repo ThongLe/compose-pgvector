@@ -1,4 +1,4 @@
-# Postgresql & PgAdmin powered by compose
+# Postgresql with pgvector extension & PgAdmin powered by compose
 
 
 ## Requirements:
@@ -7,9 +7,8 @@
 
 ## Quick Start
 * Clone or download this repository
-* Go inside of directory,  `cd compose-postgres`
+* Go inside of directory,  `cd compose-pgvector`
 * Run this command `docker-compose up -d`
-
 
 ## Environments
 This Compose file contains the following environment variables:
@@ -47,4 +46,8 @@ logging:
   driver: "none"
 ```
 
-[reference](https://github.com/khezen/compose-postgres/pull/23/files)
+## Reference
+
+[compose-postgres](https://github.com/khezen/compose-postgres/pull/23/files)
+
+[pgvector](https://github.com/pgvector/pgvector)

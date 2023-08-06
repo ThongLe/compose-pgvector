@@ -1,19 +1,19 @@
 version: '3.5'
 
 services:
-  postgres:
-    container_name: postgres_container
-    image: postgres
+  pgvector:
+    container_name: pgvector
+    image: ankane/pgvector
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
       PGDATA: /data/postgres
     volumes:
-       - postgres:/data/postgres
+       - pgvector:/data/postgres
     ports:
       - "5432:5432"
     networks:
-      - postgres
+      - postgres_vector
     restart: unless-stopped
   
   pgadmin:
@@ -29,13 +29,13 @@ services:
     ports:
       - "${PGADMIN_PORT:-5050}:80"
     networks:
-      - postgres
+      - postgres_vector
     restart: unless-stopped
 
 networks:
-  postgres:
+  postgres_vector:
     driver: bridge
 
 volumes:
-    postgres:
+    pgvector:
     pgadmin:
